@@ -3,24 +3,24 @@
 
   #Create the Table schema
 
-  IF NOT EXISTS (SELECT * FROM sys.tables WHERE name='Dim_Product' AND SCHEMA_NAME(schema_id)='dbo')
-  EGIN
-  CREATE TABLE dbo.Dim_Product (
-  ProductKey INT NOT NULL,
-  Product VARCHAR(255) NOT NULL,
-  Standard_Cost FLOAT NOT NULL,
-  Color VARCHAR(255),
-  Subcategory VARCHAR(255),
-  Category VARCHAR(255), 
-  Background_Color_Format VARCHAR(255),
-  Font_Color_Format VARCHAR(255),
-  DateInserted DATETIME2(3),  -- Define precision for fractional seconds
-  SourceFilename VARCHAR(4000)
-  );
-  ALTER TABLE dbo.Dim_Product
-  ADD CONSTRAINT PK_Dim_Product PRIMARY KEY NONCLUSTERED (ProductKey) NOT ENFORCED;
-  END;
-  GO
+    IF NOT EXISTS (SELECT * FROM sys.tables WHERE name='Dim_Product' AND SCHEMA_NAME(schema_id)='dbo')
+    BEGIN
+    CREATE TABLE dbo.Dim_Product (
+    ProductKey INT NOT NULL,
+    Product VARCHAR(255) NOT NULL,
+    Standard_Cost FLOAT NOT NULL,
+    Color VARCHAR(255),
+    Subcategory VARCHAR(255),
+    Category VARCHAR(255), 
+    Background_Color_Format VARCHAR(255),
+    Font_Color_Format VARCHAR(255),
+    DateInserted DATETIME2(3),  -- Define precision for fractional seconds
+    SourceFilename VARCHAR(4000)
+    );
+    ALTER TABLE dbo.Dim_Product
+    ADD CONSTRAINT PK_Dim_Product PRIMARY KEY NONCLUSTERED (ProductKey) NOT ENFORCED;
+    END;
+    GO
 
 
    

@@ -1,8 +1,8 @@
 Create Table in Warehouse
- create the Dim_Product table in the warehouse
+create the Dim_Product table in the warehouse
 
 
- Create the Table schema 
+        #Create the Table schema 
 
         IF NOT EXISTS (SELECT * FROM sys.tables WHERE name='Dim_Product' AND SCHEMA_NAME(schema_id)='dbo')
         BEGIN
@@ -24,13 +24,13 @@ Create Table in Warehouse
         GO
 
 
-creates a Stored Procedure to load the Dim_Product table.
+      #creates a Stored Procedure to load the Dim_Product table.
 
-    CREATE OR ALTER PROCEDURE LoadDimProduct
-    AS
-    BEGIN
-    -- Load data into the Dim_Product table from the Silver Lakehouse
-    INSERT INTO Dim_Product (
+     CREATE OR ALTER PROCEDURE LoadDimProduct
+     AS
+     BEGIN
+     -- Load data into the Dim_Product table from the Silver Lakehouse
+     INSERT INTO Dim_Product (
         ProductKey,
         Product,
         Standard_Cost,
@@ -42,7 +42,7 @@ creates a Stored Procedure to load the Dim_Product table.
         DateInserted,
         SourceFilename
     )
-    SELECT 
+        SELECT 
         ProductKey,
         Product,
         Standard_Cost,
@@ -53,14 +53,14 @@ creates a Stored Procedure to load the Dim_Product table.
         Font_Color_Format,
         GETUTCDATE() AS DateInserted,  -- Insert the current UTC timestamp
         SourceFilename
-    FROM Cleansed_Silver.dbo.Product AS silver
-    WHERE NOT EXISTS (
+        FROM Cleansed_Silver.dbo.Product AS silver
+        WHERE NOT EXISTS (
         SELECT 1 
         FROM Dim_Product AS dp 
         WHERE dp.ProductKey = silver.ProductKey  -- Match on unique ProductKey
         );
-    END;
-    GO
+       END;
+       GO
  
--- Execute the procedure
-      EXEC LoadDimProduct;
+    -- Execute the procedure
+       EXEC LoadDimProduct;

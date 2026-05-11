@@ -1,5 +1,5 @@
-  Create Table in Warehouse
-  create the Dim_Product table in the warehouse
+Create Table in Warehouse
+create the Dim_Product table in the warehouse
   
   #Create the Table schema 
 

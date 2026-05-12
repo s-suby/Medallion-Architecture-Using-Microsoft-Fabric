@@ -1,0 +1,9 @@
+Designing a data warehouse in Microsoft Fabric using the Medallion Architecture provides a scalable, end-to-end approach built on OneLake, Lakehouse, Data Factory pipelines, and Power BI. Data flows through the Bronze layer for raw ingestion, the Silver layer for cleansing and transformation in the Lakehouse, and the Gold layer for curated, analytics-ready datasets and semantic models.
+
+This approach ensures clear separation of concerns, high data quality, and efficient reporting. While the design follows core Fabric best practices, some enhancements such as dedicated date dimensions, pipeline parameterization, and SCD Type 2 handling for certain dimensions were not included for simplicity.
+
+
+
+Designing a data warehouse in Microsoft Fabric using the Medallion Architecture leverages OneLake, Lakehouse, Data Factory pipelines, and Power BI to build a scalable analytics solution. Data is organized into Bronze (raw ingestion in OneLake/Lakehouse tables), Silver (cleansed and transformed Lakehouse tables), and Gold (curated datasets and Power BI semantic models).
+
+Key Fabric artifacts used in this solution include OneLake, Lakehouse tables (Delta tables), Data Factory data pipelines for ingestion and transformation, and Power BI datasets for reporting. This layered approach ensures data quality, reusability, and a clear separation between raw, refined, and business-ready data.

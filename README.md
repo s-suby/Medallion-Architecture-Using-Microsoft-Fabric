@@ -1,5 +1,5 @@
 # Medallion-Architecture-Using-Microsoft-Fabric
-end-to-end approach to designing a data warehouse using Medallion Architecture in Microsoft Fabric.
+  End-to-end approach to designing a data warehouse using Medallion Architecture in Microsoft Fabric.
 
 
 - The article outlines a comprehensive approach to designing a data warehouse using medallion architecture in Microsoft Fabric.
